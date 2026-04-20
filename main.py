@@ -50,6 +50,56 @@ st.markdown("""
     hr { border: 0; border-top: 1px solid rgba(0, 212, 255, 0.2); margin: 20px 0; }
     </style>
     """, unsafe_allow_html=True)
+# 2. CSS 스타일 (모바일 최적화 추가)
+st.markdown("""
+    <style>
+    /* 기본 데스크탑 설정 */
+    .stApp { 
+        background: radial-gradient(circle at top right, #0d1b2a, #010409 70%); 
+        color: #E0E0E0; 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    }
+    .macro-container {
+        display: flex; justify-content: space-between; background: rgba(0, 212, 255, 0.08);
+        padding: 18px; border-radius: 12px; border: 1px solid rgba(0, 212, 255, 0.3); margin-bottom: 10px;
+    }
+    .macro-item { text-align: center; flex: 1; border-right: 1px solid rgba(255,255,255,0.1); }
+    .macro-item:last-child { border-right: none; }
+    .macro-label { font-size: 0.85rem; color: #8B949E; margin-bottom: 5px; }
+    .macro-value { font-size: 1.2rem; font-weight: bold; color: #00D4FF; }
+    
+    .advice-box { 
+        background: rgba(13, 25, 41, 0.85); 
+        border: 1px solid rgba(0, 212, 255, 0.3); 
+        padding: 25px; border-radius: 15px; margin-top: 20px; border-left: 10px solid #00D4FF;
+        line-height: 1.8;
+    }
+    .report-title { color: #00D4FF; font-weight: 800; font-size: 1.4rem; margin-bottom: 15px; display: block; }
+    .taenggu-summary { background: rgba(0, 212, 255, 0.05); padding: 18px; border-radius: 10px; margin-top: 20px; border: 1px dashed rgba(0,212,255,0.5); font-size: 0.95rem; }
+    
+    .briefing-container {
+        background: rgba(0, 212, 255, 0.05);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        padding: 15px; border-radius: 10px; height: 100%;
+    }
+    .briefing-title { color: #00D4FF; font-weight: bold; margin-bottom: 8px; display: block; }
+    .briefing-content { font-size: 0.92rem; line-height: 1.7; color: #CCCCCC; }
+
+    /* [추가] 모바일 전용 반응형 폰트 조절 (768px 이하) */
+    @media (max-width: 768px) {
+        .macro-container { flex-wrap: wrap; gap: 10px; }
+        .macro-item { border-right: none; min-width: 30%; margin-bottom: 10px; }
+        .macro-value { font-size: 1rem; }
+        .macro-label { font-size: 0.7rem; }
+        .report-title { font-size: 1.1rem; }
+        .briefing-title { font-size: 0.9rem; }
+        .briefing-content { font-size: 0.8rem; line-height: 1.5; }
+        .taenggu-summary { font-size: 0.8rem; padding: 12px; }
+        h1 { font-size: 1.5rem !important; } /* 메인 타이틀 크기 조정 */
+        .stApp p, .stApp span, .stApp div { font-size: 0.85rem !important; }
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # 3. 데이터 엔진
 @st.cache_data(ttl=60)
